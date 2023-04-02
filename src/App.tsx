@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Footer from './components/footer/footer';
 import { PropsType } from './AppContainer';
 import CatalogContainer from './components/catalog/catalogContainer';
@@ -13,9 +13,10 @@ const App: React.FC<PropsType> = ({ initializeApp, initialized }) => {
   initializeApp()
   return (
     <div className="App">
-      {initialized &&       <BrowserRouter>
+      {initialized && <BrowserRouter>
         <HeaderContainer />
         <Routes>
+          <Route path='/' element={<Navigate replace to={'/catalog'} />} />
           <Route path={'/catalog'} element={<CatalogContainer />} />
           <Route path={'/catalog/:barcode'} element={<ProductContainer />} />
           <Route path={'/basket'} element={<BasketContainer />} />
