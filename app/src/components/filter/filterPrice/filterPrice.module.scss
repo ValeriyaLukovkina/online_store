@@ -1,0 +1,45 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+@import './../../../commonScss/extra.scss';
+
+.price {
+    &_title {
+        font-weight: 300;
+        color: $dark-blue;
+
+
+        &_currency {
+            font-weight: 500;
+            font-size: 14px;
+            color: $black;
+            margin-left: $margin-small;
+        }
+    }
+
+    &_block {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 0 30px 0;
+
+        &_input {
+            width: 100px;
+            height: 23px;
+            border: none;
+            outline: none;
+            font-family: $font-inter;
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 15px;
+            color: $dark-blue;
+            text-align: center;
+            background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+            border-radius: 1000px;
+        }
+
+        &_span {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 130%;
+        }
+    }
+}

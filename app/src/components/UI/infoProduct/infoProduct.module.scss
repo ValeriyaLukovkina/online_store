@@ -1,0 +1,20 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+@import './../../../commonScss/extra.scss';
+
+.card {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+
+    &_name {
+        font-weight: 300;
+        font-size: 14px;
+    }
+
+    &_mean {
+        font-weight: 500;
+        font-size: 14px;
+        color: $black;
+    }
+}

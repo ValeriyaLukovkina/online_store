@@ -1,0 +1,183 @@
+@import './../../commonScss/colors.scss';
+@import './../../commonScss/fonts.scss';
+@import './../../commonScss/extra.scss';
+
+.basket {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    &_title {
+        margin: 50px 0;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 120%;
+        text-transform: uppercase;
+        color: $black;
+    }
+
+    &_footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 20px 100px 20px;
+
+        &_price {
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 130%;
+            color: $black;
+        }
+    }
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 281px 450px 1fr;
+    padding: 50px 10px;
+    border-top: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
+
+    @media (max-width: $width-1260) {
+        grid-template-columns: 250px 400px 1fr;
+    }
+
+    @media (max-width: $width-1024) {
+        grid-template-columns: 290px 1fr;
+        grid-template-areas: 'img about'
+            'bask bask';
+    }
+
+    &:last-child {
+        border-bottom: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
+    }
+
+    &_img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // width: 281px;
+        height: 191px;
+
+        @media (max-width: $width-1024) {
+            grid-area: img;
+        }
+
+        &_img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    &_about {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        // max-width: 510px;
+
+        @media (max-width: $width-1024) {
+            grid-area: about;
+        }
+
+        &_description {
+            // height: 60px;
+            // overflow: hidden;
+
+        }
+    }
+
+    &_extra {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        @media (max-width: $width-1024) {
+            grid-area: bask;
+            justify-content: space-around;
+            // display: grid;
+            // grid-template-columns: 1fr 1fr 1fr;
+            // grid-column-gap: 1px;
+
+            // justify-content: space-around;
+        }
+
+        &_block {
+            padding: 0 40px;
+            border-left: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
+        }
+
+        &_line {
+            border-left: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
+            height: 50px;
+        }
+
+        &_counter {
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 0 40px;
+            border-left: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
+
+            @media (max-width: $width-1260) {
+                min-width: 160px;
+                padding: 0 20px;
+            }
+
+
+            &_btn {
+                width: 34px;
+                height: 23px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+                border-radius: 1000px;
+                font-weight: 300;
+                font-size: 12px;
+
+                &:hover {
+                    background: linear-gradient(90deg, rgba(255, 198, 80, 0.6) 0%, rgba(254, 202, 110, 0.6) 97.25%);
+                }
+            }
+
+            &_count {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 130%;
+            }
+        }
+
+        &_price {
+            text-align: center;
+            min-width: 220px;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 130%;
+            color: $black;
+            padding: 0 40px;
+            // border-left: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
+            // border-right: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
+
+            @media (max-width: $width-1260) {
+                min-width: 160px;
+                padding: 0 20px;
+                font-size: 24px;
+
+            }
+        }
+
+        &_btn {
+            width: 59px;
+            height: 59px;
+            margin-left: 40px;
+
+            @media (max-width: $width-1260) {
+                width: 50px;
+                height: 50px;
+                margin-left: 20px;
+            }
+        }
+    }
+}

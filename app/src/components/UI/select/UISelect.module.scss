@@ -1,0 +1,81 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+@import './../../../commonScss/extra.scss';
+
+
+.select {
+    position: relative;
+    width: 200px;
+    height: 35px;
+
+    &_btn {
+        border: 1px solid $dark-blue;
+        width: 100%;
+        text-align: left;
+        padding: 5px;
+        border-radius: 5px;
+        background: transparent;
+        font-family: $font-inter;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 150%;
+        color: $dark-blue;
+        margin-bottom: 10px;
+    }
+
+    &_options {
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        position: absolute;
+        background-color: $white;
+        // border: none;
+        border: 1px solid $dark-blue;
+        border-radius: 10px;
+        top: 45px;
+        left: 0px;
+        transform: scaleY(0);
+        transition: .5s;
+
+        &_visible {
+        border: 1px solid $dark-blue;
+            height: max-content;
+            transform: scaleY(1);
+            // bottom: 0;
+            // left: 0;
+        }
+
+        &_option {
+            border-bottom: 1px solid $dark-grey;
+            padding: 5px;
+            font-size: 16px;
+            line-height: 150%;
+
+            &:last-child {
+                border: none;
+            }
+
+            &:hover {
+                background-color: $grey;
+            }
+
+            &_choosen {
+                background-color: $grey;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    width: 5px;
+                    height: 10px;
+                    position: absolute;
+                    top: 8px;
+                    right: 12px;
+                    border-bottom: 2px solid $yellow;
+                    border-right: 2px solid $yellow;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}

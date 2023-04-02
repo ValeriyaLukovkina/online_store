@@ -1,0 +1,10 @@
+.breadCrumbs {
+    margin-top: 45px;
+    display: flex;
+
+    &_name {
+        color: #3F4E65;
+        padding-right: 10px;
+        border-right: 1px dashed #3F4E65;
+    }
+}

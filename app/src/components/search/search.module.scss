@@ -1,0 +1,15 @@
+@import './../../commonScss/colors.scss';
+@import './../../commonScss/fonts.scss';
+@import './../../commonScss/extra.scss';
+
+.search {
+    position: relative;
+
+    &_btn {
+        width: 39px;
+        height: 39px;
+        position: absolute;
+        top: $padding-search/2;
+        right: $padding-search/2;
+    }
+}

@@ -1,0 +1,14 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+@import './../../../commonScss/extra.scss';
+
+.btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 36px;
+    background-color: $yellow;
+}

@@ -1,0 +1,158 @@
+@import './../../commonScss/colors.scss';
+@import './../../commonScss/fonts.scss';
+@import './../../commonScss/extra.scss';
+
+.admin {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    &_btn {
+        margin: 20px 0;
+    }
+}
+
+.form {
+    &_block {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
+        position: relative;
+
+        &_label {
+            font-size: 18px;
+            font-weight: 500;
+            color: $black;
+        }
+
+        &_input {
+            font-size: 16px;
+            height: 40px;
+            margin-top: 10px;
+            padding-left: 10px;
+
+            &_error {
+                border: 1px solid $red;
+            }
+        }
+
+        &_error {
+            position: absolute;
+            bottom: -20px;
+            right: 10px;
+            color: $red;
+            font-size: 12px;
+        }
+    }
+}
+
+.product {
+    display: flex;
+
+    &_img {
+        width: 100px;
+        height: 100px;
+
+        &_img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+
+.table {
+
+    &_title {
+        padding: 20px 0;
+    }
+    &_header {
+        display: grid;
+        grid-template-columns: 0.5fr 3fr 1fr 1fr 0.5fr 0.5fr;
+        gap: 10px;
+        color: $black;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    &_product {
+        display: grid;
+        grid-template-columns: 0.5fr 3fr 1fr 1fr 0.5fr 0.5fr;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+
+        &_img {
+            display: flex;
+            justify-content: center;
+
+            &_img {
+                max-width: 100%;
+                max-height: 50px;
+            }
+        }
+
+        &_edit {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
+
+        &_delete {
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.5;
+            }
+
+        }
+    }
+}
+
+.checkbox {
+    margin: 10px 0;
+
+    &_title {
+        position: relative;
+        padding-left: 15px;
+        font-size: 14px;
+        font-weight: 400;
+        color: $black;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.5;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 0;
+            border: 3px solid transparent;
+            border-top: 5px solid $dark-blue;
+            transition: all 0.5s;
+        }
+
+        &_open {
+            &:after {
+                transform: scaleY(-1);
+                top: 3px;
+            }
+        }
+    }
+
+    &_label {
+        display: block;
+    }
+
+    &_input {
+        margin-right: 5px;
+    }
+}

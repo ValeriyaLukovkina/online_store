@@ -1,0 +1,24 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 21px 54px;
+    font-family: $font-inter;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 17px;
+    color: $white;
+    background: $yellow;
+    border: none;
+    border-radius: 79px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}

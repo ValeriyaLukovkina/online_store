@@ -1,0 +1,101 @@
+@import './../../commonScss/colors.scss';
+@import './../../commonScss/fonts.scss';
+@import './../../commonScss/extra.scss';
+
+
+.footer {
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 50px;
+    // background-color: $dark-blue;
+    color: $white;
+    padding: 70px 10px 115px 10px;
+
+    &_wrp {
+        background-color: $dark-blue;
+    }
+
+    &_description {
+        max-width: 320px;
+        margin: 15px 0 45px 0;
+    }
+
+    &_span {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    &_mail {
+        position: relative;
+
+        &_btn {
+            width: 39px;
+            height: 39px;
+            position: absolute;
+            top: $padding-search/2;
+            right: $padding-search/2;
+        }
+    }
+
+    &_title {
+        font-weight: 600;
+        font-size: 20px;
+        color: $white;
+        margin-bottom: 25px;
+    }
+
+    &_messange {
+        margin: 15px 0 20px 0;
+    }
+
+    &_list {
+        list-style-type: none;
+
+        &_item {
+            margin-bottom: 20px;
+
+            &_link {
+                text-decoration: none;
+                color: $white;
+            }
+        }
+    }
+}
+
+.contacts {
+    &_info {
+        &_tel {
+            font-weight: 600;
+            font-size: 14px;
+            color: $white;
+            text-decoration: none;
+        }
+
+        &_btn {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            font-weight: 400;
+            font-size: 10px;
+            text-decoration: underline;
+            color: $white;
+        }
+    }
+}
+
+.mail {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0;
+
+    &_link {
+        font-weight: 600;
+font-size: 14px;
+line-height: 18px;
+color: $white;
+text-decoration: none;
+    }
+}

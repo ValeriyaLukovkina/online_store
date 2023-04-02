@@ -1,0 +1,43 @@
+@import './../../commonScss/colors.scss';
+@import './../../commonScss/fonts.scss';
+@import './../../commonScss/extra.scss';
+
+.filter {
+    &_options {
+        display: flex;
+        align-items: center;
+
+        &_title {
+            font-weight: 500;
+            font-size: 16px;
+            color: $black;
+            text-transform: uppercase;
+            margin-bottom: $margin;
+        }
+
+        &_btn {
+            @media (max-width: 768px) {
+                width: 32px;
+                height: 32px;
+                margin-left: 50px;
+            }
+
+            &_arrow {
+
+                @media (max-width: 768px) {
+                    z-index: 11;
+                    width: 7px;
+                    height: 7px;
+                    border-top: 1px solid $dark-blue;
+                    border-right: 1px solid $dark-blue;
+                    transform: rotate(-45deg) scale(1) translateX(-1px) translateY(1px);
+                    transition: .5s;
+                }
+
+                &_hidden {
+                    transform: rotate(-45deg) scale(-1) translateX(-1px) translateY(1px);
+                }
+            }
+        }
+    }
+}

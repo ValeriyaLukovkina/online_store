@@ -1,0 +1,31 @@
+$font-inter-name: 'Inter';
+$font-inter: $font-inter-name, Arial, sans-serif;
+
+$fonts-inter: (
+    'Inter-Thin' 100 normal,
+    'Inter-ThinItalic' 100 italic,
+    'Inter-ExtraLight' 200 normal,
+    'Inter-ExtraLightItalic' 200 italic,
+    'Inter-Light' 300 normal,
+    'Inter-LightItalic' 300 italic,
+    'Inter-Regular' 400 normal,
+    'Inter-RegularItalic' 400 italic,
+    'Inter-Medium' 500 normal,
+    'Inter-MediumItalic' 500 italic,
+    'Inter-SemiBold' 600 normal,
+    'Inter-SemiBoldItalic' 600 italic,
+    'Inter-Bold' 700 normal,
+    'Inter-BoldItalic' 700 italic,
+    'Inter-ExtraBold' 800 normal,
+    'Inter-ExtraBoldItalic' 800 italic
+);
+
+@each $font, $weight, $style in $fonts-inter {
+    @font-face {
+        font-family: $font-inter-name;
+        src: url('./../assests/fonts/#{$font}.otf') format('opentype');
+        font-weight: $weight;
+        font-style: $style;
+        font-display: swap;
+    }
+}

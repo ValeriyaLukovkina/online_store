@@ -1,0 +1,48 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+@import './../../../commonScss/extra.scss';
+
+.paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_btn {
+        font-family: $font-inter;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 150%;
+        color: $dark-blue;
+        margin: 0 20px;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+
+        @media (max-width: 425px) {
+            margin: 0 10px;
+        }
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    &_span {
+        margin: 0 10px;
+        cursor: pointer;
+
+        @media (max-width: 425px) {
+            margin: 0 5px;
+        }
+
+        &:hover {
+            opacity: 0.5;
+        }
+
+        &_selected {
+            color: $yellow;
+        }
+    }
+}

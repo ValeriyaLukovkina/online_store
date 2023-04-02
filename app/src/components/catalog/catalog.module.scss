@@ -1,0 +1,74 @@
+@import './../../commonScss/colors.scss';
+@import './../../commonScss/fonts.scss';
+@import './../../commonScss/extra.scss';
+
+.catalog {
+    display: grid;
+    grid-template-areas: 'head head'
+        'filt prod'
+        'pagin pagin';
+    grid-template-columns: 250px auto;
+    max-width: $width-content;
+    margin: 0 auto;
+    padding: 45px 10px 100px 10px;
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    &_header {
+        grid-area: head;
+        position: relative;
+
+        &_title {
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 120%;
+            text-transform: uppercase;
+            color: $black;
+
+            @media (max-width: $width-1024) {
+                font-size: 32px;
+            }
+
+            @media (max-width: $width-768) {
+                font-size: 20px;
+            }
+        }
+
+        &_sort {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            position: absolute;
+            top: 0;
+            right: 20px;
+
+            &_title {
+                font-weight: 500;
+                font-size: 16px;
+                color: $black;
+            }
+
+            @media (max-width: $width-1024) {
+                display: none;
+            }
+        }
+    }
+
+
+
+    &_filter {
+        grid-area: filt;
+    }
+
+    &_products {
+        grid-area: prod;
+    }
+
+    &_paginator {
+        grid-area: pagin;
+    }
+}

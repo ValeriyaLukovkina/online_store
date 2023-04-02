@@ -1,0 +1,150 @@
+@import './../../../commonScss/colors.scss';
+@import './../../../commonScss/fonts.scss';
+@import './../../../commonScss/extra.scss';
+
+.top {
+    max-width: $width-content;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: $margin;
+
+    &_contacts {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        &_block {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+
+            &_txt {
+
+                &_main {
+                    font-weight: 600;
+                    line-height: 130%;
+                    color: $black;
+                }
+
+                &_link {
+                    font-weight: 600;
+                    line-height: 130%;
+                    color: $black;
+                    text-decoration: none;
+                }
+
+                &_ad {
+                    display: block;
+                    font-weight: 300;
+                    font-size: 12px;
+                }
+            }
+        }
+
+        &_line {
+            border: 0.5px dashed #000000;
+            height: 40px;
+            opacity: 0.05;
+        }
+
+        @media (max-width: 1024px) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        display: block;
+    }
+}
+
+.info {
+    max-width: $width-content;
+    margin: 0 auto;
+    padding: $margin-small $margin;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_img {
+        cursor: pointer;
+    }
+
+    &_search {
+        width: 263px;
+    }
+
+    &_price {
+        @media (max-width: 1260px) {
+            display: none;
+        }
+    }
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+
+    &_info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+        margin-right: $margin;
+
+        &_tel {
+            font-weight: 600;
+            color: $black;
+            text-decoration: none;
+            &:hover {
+                opacity: 0.5;
+                }
+        }
+
+        &_txt {
+            font-weight: 300;
+            font-size: 12px;
+        cursor: default;
+        }
+
+        &_btn {
+            font-family: $font-inter;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 10px;
+            line-height: 150%;
+            color: $dark-blue;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            text-decoration: underline;
+        cursor: pointer;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.basket {
+    display: flex;
+    cursor: pointer;
+    min-width: 150px;
+
+    &:hover {
+        opacity: 0.5;
+        }
+
+    &_info {
+        &_txt {
+            font-weight: 300;
+            font-size: 12px;
+        }
+
+        &_price {
+            font-weight: 600;
+            color: $black;
+        }
+    }
+}
