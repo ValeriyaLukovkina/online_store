@@ -45,23 +45,21 @@ export const initializeApp = (): ThunkAction<Promise<void>, any, unknown, any> =
 
     let promiseCategory;
     let promiseCatalog;
-
     dispatch(setBasket())
-    debugger
 
     if (catalog && catalog.length > 0 && category) {
 
-        dispatch(setCatalogReducer(catalog));
+        promiseCatalog = dispatch(setCatalogReducer(catalog));
 
-        dispatch(setCategoryList(category))
+        promiseCategory = dispatch(setCategoryList(category))
 
-    } else if (!catalog) {
+    } 
+    if (!category) {
         promiseCategory = dispatch(getCategory())
-    } else if (!catalog || catalog.length === 0) {
-        promiseCatalog = dispatch(getCatalog());
-    } else {
-        return console.error();
     }
+    if (!catalog || catalog.length === 0) {
+        promiseCatalog = dispatch(getCatalog());
+    } 
     Promise.all([promiseCategory, promiseCatalog])
     .then(() => {
         dispatch(initializedSuccess());

@@ -41,6 +41,7 @@ export const getCategory = (): ThunkAction<Promise<void>, any, unknown, any> => 
     }
 }
 
+
 export const setCategoryList = (categoryList: Array<CategoryType>): SetCategoryListActionType => ({ type: SET_CATEGORY_LIST, categoryList })
 
 export default categoryReducer;
