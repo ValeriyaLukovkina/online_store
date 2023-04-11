@@ -9,8 +9,8 @@ type PropsType = {
 const UIInput: React.FC<PropsType> = ({ nameValue, ...props }) => {
     return (
         <>
-        {nameValue && <Field {...props} placeholder='Поиск...' className={style.input} name={nameValue} />}
-        {!nameValue && <input placeholder='Поиск...' className={style.input}/>}
+            {nameValue && <Field {...props} placeholder='Поиск...' className={style.input} name={nameValue} />}
+            {!nameValue && <input placeholder='Поиск...' className={style.input} />}
         </>
     )
 }

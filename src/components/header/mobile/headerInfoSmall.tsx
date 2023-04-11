@@ -1,20 +1,10 @@
 import React from "react";
 // import UIButtonRound from "../../UI/buttonRound/UIButtonRound";
 import style from './headerMobile.module.scss';
-// import UIButton from "../../UI/button/UIButton";
-// import logoSultan from './../../assests/svg/logoSultan.svg';
 import logoCatalogDark from './../../../assests/svg/logoCatalogDark.svg';
 import logoSearchDark from './../../../assests/svg/logoSearchDark.svg';
-// import Search from "../../search/search";
-// import logoCall from './../../assests/svg/call.svg';
-// import logoDownload from './../../assests/svg/logoDownload.svg';
-// import logoBasket from './../../assests/svg/logoBasket.svg';
 
-type PropsType = {
-
-}
-
-const HeaderInfoSmall: React.FC<PropsType> = ({ }) => {
+const HeaderInfoSmall = () => {
     return (
         <div className={style.info}>
             <button className={style.info_btn}>

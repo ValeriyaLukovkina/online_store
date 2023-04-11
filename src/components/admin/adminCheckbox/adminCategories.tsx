@@ -2,12 +2,19 @@ import React from "react";
 import { useState } from "react";
 import AdminCheckbox from "./adminCheckbox";
 import style from "./../admin.module.scss";
+import { CategoryType } from "../../../type/type";
 
-const AdminCategories: React.FC<any> = ({ category }) => {
+type PropsType = {
+    category: CategoryType
+}
+
+const AdminCategories: React.FC<PropsType> = ({ category }) => {
     const [isShowFull, setIsShowFull] = useState(false)
+
     const cubcategories = category.subcategory.map((subcategory: string) => {
         return <AdminCheckbox name="subtype" category={category.category} subcategory={subcategory} />
     })
+
     return (
         <div className={style.checkbox}>
             <p className={style.checkbox_title + ' ' + (isShowFull && style.checkbox_title_open)} onClick={() => setIsShowFull(!isShowFull)}>{category.category}</p>

@@ -10,8 +10,9 @@ export const formTypeProduct = (subtypes: Array<string>) => {
             let subcategoryArr = [subcategory]
             newObj[category] = subcategoryArr
             typeProduct.push(newObj)
+            return typeProduct
         } else {
-            typeProduct.map((el: any) => {
+            return typeProduct.map((el: any) => {
                 if (el[category]) {
                     el[category] = [...el[category], subcategory]
                 }

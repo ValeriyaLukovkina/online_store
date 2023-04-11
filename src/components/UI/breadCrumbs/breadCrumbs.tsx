@@ -1,6 +1,10 @@
 import React from "react";
 
-const BreadCrumbs: React.FC<any> = ({children, ...props}) => {
+type PropsType = {
+    children: React.ReactNode
+}
+
+const BreadCrumbs: React.FC<PropsType> = ({ children, ...props }) => {
     return (
         <div {...props} className='breadCrumbs'>
             {children}

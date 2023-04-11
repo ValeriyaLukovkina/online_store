@@ -20,6 +20,4 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
     maxPriceProducts: state.filter.maxPriceProducts
 })
 
-
-
 export default connect(mapStateToProps, { setMinPrice, setMaxPrice })(FilterPrice)

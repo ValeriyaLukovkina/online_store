@@ -4,7 +4,7 @@ import style from './UIPaginator.module.scss';
 type PropsType = {
     totalCount: number,
     pageSize: number,
-    onPageChanged: any,
+    onPageChanged: (p: number) => void,
     currentPage: number,
     portionSize: number
 }
@@ -23,7 +23,6 @@ const UIPaginator: React.FC<PropsType> = ({ totalCount, pageSize, onPageChanged,
     let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
     let rightPortionPageNumber = portionNumber * portionSize;
 
-
     return (
         <div className={style.paginator}>
             {portionNumber > 1 &&
@@ -33,6 +32,7 @@ const UIPaginator: React.FC<PropsType> = ({ totalCount, pageSize, onPageChanged,
                 .map((p) => {
                     return (
                         <span
+                            key={p}
                             onClick={() => onPageChanged(p)}
                             className={style.paginator_span + ' ' + (currentPage === p && style.paginator_span_selected)}>{p}</span>
                     )

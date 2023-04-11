@@ -17,4 +17,4 @@ const mapStateToProps = (state: AppStateType): mapStateToPropsType => ({
     basket: state.basket.basket
 })
 
-export default connect(mapStateToProps, {})(Header)
+export default connect(mapStateToProps, {  })(Header)

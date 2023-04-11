@@ -1,8 +1,6 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-// import { createPortal } from "react-dom";
+import { SortValueType } from "../../../type/type";
 import style from './UISelect.module.scss';
 
 type PropsType = {
@@ -30,7 +28,7 @@ const UISelect: React.FC<PropsType> = ({ options, value, chooseValue, ...props }
 
     const optionList = options && options.map((option: string) => {
         return (
-            <p className={style.select_options_option + ' ' + (value === option && style.select_options_option_choosen)} 
+            <p className={style.select_options_option + ' ' + (value === option && style.select_options_option_choosen)}
                 key={option} onClick={() => choose(option)}>
                 {option}
             </p>

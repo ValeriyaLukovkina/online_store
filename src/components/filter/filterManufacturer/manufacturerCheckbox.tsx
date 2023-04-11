@@ -2,13 +2,13 @@ import { Field } from "formik";
 import React from "react";
 import style from "./filterManufacturer.module.scss";
 
-type PropsType = {
+export type ManufacturerCheckboxPropsType = { 
     titleManufacturer: string,
     countProduct: number,
-    setManufacturer: (manufacturer: Array<string>) => void,
+    // setManufacturer: (manufacturer: Array<string>) => void,
 }
 
-const ManufacturerCheckbox: React.FC<PropsType> = ({ titleManufacturer, countProduct, setManufacturer }) => {
+const ManufacturerCheckbox: React.FC<ManufacturerCheckboxPropsType> = ({ titleManufacturer, countProduct }) => {
     return (
         <label className={style.manufacturer_form_label}>
             <Field className={style.manufacturer_form_checkbox} type='checkbox' name='chekedManufacturer' value={titleManufacturer} />

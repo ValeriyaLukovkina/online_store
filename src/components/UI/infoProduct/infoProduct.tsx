@@ -1,5 +1,4 @@
 import React from "react";
-import { ProductType } from "../../../type/type";
 import style from "./infoProduct.module.scss";
 
 type PropsType = {

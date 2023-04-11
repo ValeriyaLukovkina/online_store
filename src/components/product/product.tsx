@@ -4,16 +4,14 @@ import { useParams } from "react-router-dom"
 import style from "./product.module.scss";
 import { PropsType } from "./productContainer";
 import { ProductType } from "../../type/type";
-import logoBottle from "./../../assests/svg/logoBottle.svg";
-import logoBox from "./../../assests/svg/logoBox.svg";
 import logoBasketWhite from "./../../assests/svg/logoBasketWhite.svg";
 import logoShare from "./../../assests/svg/logoShare.svg";
 import logoDownloadDark from "./../../assests/svg/logoDownloadDark.svg";
 import UIButton from "../UI/button/UIButton";
-import { useState } from "react";
+import { useState } from "react"; 
 import SizeProduct from "../UI/sizeProduct/sizeProduct";
 import InfoProduct from "../UI/infoProduct/infoProduct";
-import BreadCrumbs from "../breadCrumbs/breadCrumbs";
+import BreadCrumbs from "../UI/breadCrumbs/breadCrumbs";
 
 const Product: React.FC<PropsType> = ({ productList, addToBasket, increaseCountProduct, decreaseCountProduct }) => {
     const params = useParams();
@@ -34,6 +32,7 @@ const Product: React.FC<PropsType> = ({ productList, addToBasket, increaseCountP
     let product: ProductType | undefined = productList?.filter((product: ProductType) => {
         return product.barcode === Number(params.barcode)
     })[0]
+
     return (
         <>
             <BreadCrumbs>
@@ -52,7 +51,6 @@ const Product: React.FC<PropsType> = ({ productList, addToBasket, increaseCountP
                 <div className={style.product}>
                     <div className={style.product_img}>
                         <img className={style.product_img_img} src={product.image_url} alt={product.title} />
-
                     </div>
                     <div className={style.info}>
                         <p className={style.info_stock}>В наличии</p>
@@ -66,11 +64,16 @@ const Product: React.FC<PropsType> = ({ productList, addToBasket, increaseCountP
                             <div className={style.info_basket_block}>
                                 <p className={style.info_basket_price}>{product.price} &#8381;</p>
                                 <div className={style.info_basket_counter}>
-                                    <button className={style.info_basket_counter_btn} onClick={decreaseCount}>
+                                    <button
+                data-testid='btn-decreaseCount'
+
+                                     className={style.info_basket_counter_btn} onClick={decreaseCount}>
                                         -
                                     </button>
-                                    <span className={style.info_basket_counter_count}>{countProduct}</span>
-                                    <button className={style.info_basket_counter_btn} onClick={increaseCount}>+</button>
+                                    <span data-testid='product-count' className={style.info_basket_counter_count}>{countProduct}</span>
+                                    <button
+                data-testid='btn-increaseCount'
+                                     className={style.info_basket_counter_btn} onClick={increaseCount}>+</button>
                                 </div>
                             </div>
                             <div className={style.info_basket_btn}>

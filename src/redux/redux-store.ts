@@ -7,7 +7,7 @@ import catalogReducer from './catalog-reducer';
 import categoryReducer from './category-reducer';
 import filterReducer from './filter-reducer';
 
-let reducers = combineReducers({
+export let reducers = combineReducers({
     app: appReducer,
     catalog: catalogReducer,
     category: categoryReducer,

@@ -73,16 +73,9 @@
         flex-direction: column;
         gap: 10px;
         justify-content: center;
-        // max-width: 510px;
 
         @media (max-width: $width-1024) {
             grid-area: about;
-        }
-
-        &_description {
-            // height: 60px;
-            // overflow: hidden;
-
         }
     }
 
@@ -94,11 +87,6 @@
         @media (max-width: $width-1024) {
             grid-area: bask;
             justify-content: space-around;
-            // display: grid;
-            // grid-template-columns: 1fr 1fr 1fr;
-            // grid-column-gap: 1px;
-
-            // justify-content: space-around;
         }
 
         &_block {
@@ -157,8 +145,6 @@
             line-height: 130%;
             color: $black;
             padding: 0 40px;
-            // border-left: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
-            // border-right: 1px dashed rgba($color: $dark-blue, $alpha: 0.2);
 
             @media (max-width: $width-1260) {
                 min-width: 160px;

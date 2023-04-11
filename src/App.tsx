@@ -10,7 +10,9 @@ import BasketContainer from './components/basket/basketContainer';
 import AdminContainer from './components/admin/adminContainer';
 
 const App: React.FC<PropsType> = ({ initializeApp, initialized }) => {
-  initializeApp()
+
+  initializeApp();
+  
   return (
     <div className="App">
       {initialized && <BrowserRouter>

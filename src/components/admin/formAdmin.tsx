@@ -41,14 +41,15 @@ const FormSchema = Yup.object().shape({
 const FormAdmin: React.FC<PropsType> = ({ categoryList, productEdit, addProduct, changeProduct, setIsAdding }) => {
 
     const initial = useMemo(() => {
-        let subtypeArr: any = []
+        let subtypeArr: Array<string> = []
+
         productEdit?.type_product.forEach((type: any) => {
-            let category: any = Object.keys(type)
-            type[category].forEach((subtype: any) => {
-                debugger
+            let category: string = Object.keys(type)[0]
+            type[category].forEach((subtype: Array<string>) => {
                 subtypeArr.push(`${category}+++${subtype}`)
             })
         })
+
         return productEdit ? {
             title: productEdit.title,
             description: productEdit.description,
@@ -102,7 +103,6 @@ const FormAdmin: React.FC<PropsType> = ({ categoryList, productEdit, addProduct,
                                 {categoryList && categoryList.map((category: CategoryType) => {
                                     return <AdminCategories category={category} />
                                 })}
-                                {/* {touched['subtype'] && errors['subtype'] ? <div className={style.form_block_error}>{errors['subtype']}</div> : null} */}
                             </div>
 
                             <label className={style.form_block_label} htmlFor="typeSize"> Выберете тип размера</label>
@@ -115,9 +115,9 @@ const FormAdmin: React.FC<PropsType> = ({ categoryList, productEdit, addProduct,
                             <Field name="brand" component={AdminInput} placeholder="Введите производителя" txtLabel='Производитель' type='text' />
                             <Field name="price" component={AdminInput} placeholder="Введите цену" txtLabel='Цена' type='number' />
                             <div className={style.admin_btn}>
-                            <UIButton type="submit">
-                                Добавить
-                            </UIButton>
+                                <UIButton type="submit">
+                                    Добавить
+                                </UIButton>
                             </div>
                         </Form>
                     )

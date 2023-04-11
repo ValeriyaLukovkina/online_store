@@ -1,7 +1,8 @@
-import { addProductSuccess, changeProductSuccess, deleteProductSuccess } from './catalog-reducer';
+import { addProductSuccess, AddProductSuccessActionType, changeProductSuccess, ChangeProductSuccessActionType, deleteProductSuccess, DeleteProductSuccessActionType } from './catalog-reducer';
 import { ProductAdminType, ProductType } from './../type/type';
 import { ThunkAction } from 'redux-thunk';
 import { formTypeProduct } from '../utils/admin';
+import { AppStateType } from './redux-store';
 
 type InintalStateType = {
 
@@ -18,11 +19,10 @@ const adminReducer = (state = initialState, action: ActionsType): InintalStateTy
     }
 }
 
-type ActionsType = {
-    type: any
-}
+type ActionsType = AddProductSuccessActionType | ChangeProductSuccessActionType | DeleteProductSuccessActionType;
 
-export const addProduct = (newProduct: ProductAdminType): ThunkAction<Promise<void>, any, unknown, any> => async (dispatch) => {
+
+export const addProduct = (newProduct: ProductAdminType): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
     const type = formTypeProduct(newProduct.subtype);
 
     let product: ProductType = {
@@ -45,7 +45,7 @@ export const addProduct = (newProduct: ProductAdminType): ThunkAction<Promise<vo
     } 
 }
 
-export const changeProduct =  (newProduct: ProductAdminType): ThunkAction<Promise<void>, any, unknown, any> => async (dispatch) => {
+export const changeProduct =  (newProduct: ProductAdminType): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
     const type = formTypeProduct(newProduct.subtype);
 
     let product: ProductType = {
@@ -70,7 +70,7 @@ export const changeProduct =  (newProduct: ProductAdminType): ThunkAction<Promis
     } 
 }
 
-export const deleteProduct = (barcode: number): ThunkAction<Promise<void>, any, unknown, any> => async (dispatch) => {
+export const deleteProduct = (barcode: number): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
     let catalogLS = localStorage.getItem('catalog');
 
     if (catalogLS) {

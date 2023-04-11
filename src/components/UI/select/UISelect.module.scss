@@ -30,7 +30,6 @@
         overflow: hidden;
         position: absolute;
         background-color: $white;
-        // border: none;
         border: 1px solid $dark-blue;
         border-radius: 10px;
         top: 45px;
@@ -39,11 +38,9 @@
         transition: .5s;
 
         &_visible {
-        border: 1px solid $dark-blue;
+            border: 1px solid $dark-blue;
             height: max-content;
             transform: scaleY(1);
-            // bottom: 0;
-            // left: 0;
         }
 
         &_option {

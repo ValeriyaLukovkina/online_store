@@ -29,6 +29,4 @@ const mapStateToProps = (state: AppStateType, ownProps: OwnPropsType): MapStateT
     whereShow: ownProps.whereShow
 })
 
-
-
 export default connect(mapStateToProps, { setCategory, setSubcategory })(FilterCategory)

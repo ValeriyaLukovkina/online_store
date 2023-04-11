@@ -1,37 +1,27 @@
 import { connect } from "react-redux"
-import { addToBasket, decreaseCountProduct, increaseCountProduct } from "../../../redux/basket-reducer";
+import { addToBasket } from "../../../redux/basket-reducer";
 import { AppStateType } from "../../../redux/redux-store"
 import { ProductType, SortValueType } from "../../../type/type";
 import CatalogCard from "./card";
 
-type mapStateToPropsType = {
-    // productList: Array<ProductType> | null,
-    // choosenCategory: string | null,
-    // choosenSubcategory: string | null,
-    // choosenManufacturer: Array<string> | null,
+type MapStateToPropsType = {
     sort: SortValueType,
-    productsFiltered: any
-    // minPrice: number | null,
-    // maxPrice: number | null,
+    productsFiltered: Array<ProductType>
+}
+
+type OwnPropsType = {
+    productsFiltered: Array<ProductType>
 }
 
 type MapDispatchToPropsType = {
     addToBasket: (product: ProductType, countProduct: number) => void,
-    // increaseCountProduct: (barcode: number) => void,
-    // decreaseCountProduct: (barcode: number) => void,
 }
 
-export type PropsType = mapStateToPropsType & MapDispatchToPropsType;
+export type PropsType = MapStateToPropsType & MapDispatchToPropsType;
 
-const mapStateToProps = (state: AppStateType, ownProps: any): mapStateToPropsType => ({
-    // productList: state.catalog.productList,
-    // choosenCategory: state.filter.category,
-    // choosenSubcategory: state.filter.subcategory,
-    // choosenManufacturer: state.filter.manufacturer,
+const mapStateToProps = (state: AppStateType, ownProps: OwnPropsType): MapStateToPropsType => ({
     sort: state.catalog.sort,
     productsFiltered: ownProps.productsFiltered
-    // minPrice: state.filter.minPriceProducts,
-    // maxPrice: state.filter.maxPriceProducts,
 })
 
 export default connect(mapStateToProps, { addToBasket })(CatalogCard)

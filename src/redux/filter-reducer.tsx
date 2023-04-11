@@ -4,7 +4,7 @@ const SET_CATEGORY = 'SET_CATEGORY';
 const SET_SUBCATEGORY = 'SET_SUBCATEGORY';
 const SET_MANUFACTURER = 'SET_MANUFACTURER';
 
-type InitialStateType = {
+export type InitialStateTypeFilter = {
     category: string | null,
     subcategory: string | null,
     minPriceProducts: number | null,
@@ -12,7 +12,7 @@ type InitialStateType = {
     manufacturer: Array<string> | null
 }
 
-let initialState: InitialStateType = {
+export let initialStateFilter: InitialStateTypeFilter = {
     category: null,
     subcategory: null,
     minPriceProducts: 0,
@@ -20,7 +20,7 @@ let initialState: InitialStateType = {
     manufacturer: null
 }
 
-let filterReducer = (state = initialState, action: ActionsType) => {
+let filterReducer = (state = initialStateFilter, action: ActionsType) => {
     switch (action.type) {
         case SET_MIN_PRICE:
             return {
@@ -52,12 +52,12 @@ let filterReducer = (state = initialState, action: ActionsType) => {
     }
 }
 
-type SetMinPriceActionType = {
+export type SetMinPriceActionType = {
     type: typeof SET_MIN_PRICE,
     price: number
 }
 
-type SetMaxPriceActionType = {
+export type SetMaxPriceActionType = {
     type: typeof SET_MAX_PRICE,
     price: number
 }

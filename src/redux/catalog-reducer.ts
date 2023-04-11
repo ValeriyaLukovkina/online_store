@@ -3,7 +3,8 @@ import { catalogAPI } from '../api/api';
 import { ProductType, SortValueType } from '../type/type';
 import { countValueInArray } from '../utils/helpFuncWithObj';
 import { sortArray } from '../utils/sort';
-import { setMaxPrice, setMinPrice } from './filter-reducer';
+import { setMaxPrice, SetMaxPriceActionType, setMinPrice, SetMinPriceActionType } from './filter-reducer';
+import { AppStateType } from './redux-store';
 
 const SET_PRODUCT_LIST = 'SET_PRODUCT_LIST';
 const SET_MANUFACTURER_LIST = 'SET_MANUFACTURER_LIST';
@@ -13,21 +14,21 @@ const CHANGE_PRODUCT_SUCCESS = 'CHANGE_PRODUCT_SUCCESS';
 const DELETE_PRODUCT_SUCCESS = 'DELETE_PRODUCT_SUCCESS';
 
 
-type InitialStateType = {
+export type InitialStateTypeCatalog = {
     productList: Array<ProductType> | null,
     manufacturerList: { [index: string]: number } | null,
     sortList: Array<string>,
     sort: SortValueType,
 }
 
-let initialState: InitialStateType = {
+export let initialStateCatalog: InitialStateTypeCatalog = {
     productList: null,
     manufacturerList: null,
     sortList: ['Название А-Я', 'Название Я-А', 'По возрастанию цены', 'По убыванию цены'],
     sort: 'Название А-Я',
 }
 
-const catalogReducer = (state = initialState, action: ActionsType): InitialStateType => {
+const catalogReducer = (state = initialStateCatalog, action: ActionsType): InitialStateTypeCatalog => {
     switch (action.type) {
         case SET_PRODUCT_LIST:
             return {
@@ -50,7 +51,6 @@ const catalogReducer = (state = initialState, action: ActionsType): InitialState
                 productList: state.productList && [...state.productList, action.product]
             }
         case CHANGE_PRODUCT_SUCCESS:
-            debugger
             return {
                 ...state,
                 productList: state.productList && [...state.productList.filter(product => product.barcode !== action.product.barcode), action.product]
@@ -75,39 +75,41 @@ type SetManufacturerListType = {
     productData: Array<ProductType>
 }
 
-type SetSort = {
+type SetSortType = {
     type: typeof SET_SORT,
     sortValue: SortValueType
 }
 
-type addProductSuccessActionType = {
+export type AddProductSuccessActionType = {
     type: typeof ADD_PRODUCT_SUCCESS,
     product: ProductType
 }
 
-type changeProductSuccessActionType = {
+export type ChangeProductSuccessActionType = {
     type: typeof CHANGE_PRODUCT_SUCCESS,
     product: ProductType
 }
 
-type deleteProductSuccessActionType = {
+export type DeleteProductSuccessActionType = {
     type: typeof DELETE_PRODUCT_SUCCESS,
     barcode: number
 }
 
 
-type ActionsType = SetProductListActionType | SetManufacturerListType | SetSort | addProductSuccessActionType | deleteProductSuccessActionType | changeProductSuccessActionType;
+type ActionsType = SetProductListActionType | SetManufacturerListType | SetSortType | AddProductSuccessActionType | DeleteProductSuccessActionType | ChangeProductSuccessActionType | SetMinPriceActionType | SetMaxPriceActionType;
 
-export const getCatalog = (): ThunkAction<Promise<void>, any, unknown, any> => async (dispatch) => {
-    let promise = await catalogAPI.getCatalog();
+export const getCatalog = (): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
+    let promise: Array<ProductType> = await catalogAPI.getCatalog();
+    console.log(promise)
 
     if (promise) {
+        console.log(promise)
         localStorage.setItem('catalog', JSON.stringify(promise));
         dispatch(setCatalogReducer(promise))
     }
 }
 
-export const setCatalogReducer = (promise: any): ThunkAction<Promise<void>, any, unknown, any> => async (dispatch) => {
+export const setCatalogReducer = (promise: Array<ProductType>): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
     let productListSortPrice = sortArray(promise, 'price', null);
 
     dispatch(setProductList(promise));
@@ -120,12 +122,12 @@ export const setProductList = (productData: Array<ProductType>): SetProductListA
 
 export const setManufacturerList = (productData: Array<ProductType>): SetManufacturerListType => ({ type: SET_MANUFACTURER_LIST, productData });
 
-export const setSort = (sortValue: SortValueType) => ({ type: SET_SORT, sortValue });
+export const setSort = (sortValue: SortValueType): SetSortType => ({ type: SET_SORT, sortValue });
 
-export const addProductSuccess = (product: ProductType) => ({ type: ADD_PRODUCT_SUCCESS, product });
+export const addProductSuccess = (product: ProductType): AddProductSuccessActionType => ({ type: ADD_PRODUCT_SUCCESS, product });
 
-export const changeProductSuccess = (product: ProductType) => ({ type: CHANGE_PRODUCT_SUCCESS, product });
+export const changeProductSuccess = (product: ProductType): ChangeProductSuccessActionType => ({ type: CHANGE_PRODUCT_SUCCESS, product });
 
-export const deleteProductSuccess = (barcode: number) => ({ type: DELETE_PRODUCT_SUCCESS, barcode });
+export const deleteProductSuccess = (barcode: number): DeleteProductSuccessActionType => ({ type: DELETE_PRODUCT_SUCCESS, barcode });
 
 export default catalogReducer;

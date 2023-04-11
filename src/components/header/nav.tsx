@@ -1,13 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from './header.module.scss';
 
 const Nav = () => {
+
     return (
         <ul className={style.nav}>
-            <li className={style.nav_item}><a className={style.nav_item_link} href="#">О компании</a></li>
-            <li className={style.nav_item}><a className={style.nav_item_link} href="#">Доставка и оплата</a></li>
-            <li className={style.nav_item}><a className={style.nav_item_link} href="#">Возврат</a></li>
-            <li className={style.nav_item}><a className={style.nav_item_link} href="#">Контакты</a></li>
+            <li className={style.nav_item}>
+                <Link className={style.nav_item_link} to="#">
+                    О компании
+                </Link>
+            </li>
+            <li className={style.nav_item}>
+                <Link className={style.nav_item_link} to="#">
+                    Доставка и оплата
+                </Link>
+            </li>
+            <li className={style.nav_item}>
+                <Link className={style.nav_item_link} to="#">
+                    Возврат
+                </Link>
+            </li>
+            <li className={style.nav_item}>
+                <Link className={style.nav_item_link} to="#">
+                    Контакты
+                </Link>
+            </li>
         </ul>
     )
 }

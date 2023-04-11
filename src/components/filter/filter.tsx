@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useResize } from "../../hooks/use-resize";
 import UIButtonRound from "../UI/buttonRound/UIButtonRound";
 import style from "./filter.module.scss"
@@ -7,7 +6,7 @@ import FilterCategoryContainer from "./filterCategory/filterCategoryContainer";
 import FilterManufacturerContainer from "./filterManufacturer/filterManufacturerContainer";
 import FilterPriceContainer from "./filterPrice/filterPriceContainer";
 
-const Filter: React.FC<any> = ({ setProductList }) => {
+const Filter = () => {
     const [isShowOptions, setIsShowOptions] = useState(false);
 
     const screen = useResize();

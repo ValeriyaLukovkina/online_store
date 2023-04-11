@@ -3,7 +3,6 @@ import categoryData from './../category.json';
 
 export const catalogAPI = {
     getCatalog: () => Promise.resolve(productData),
-
 }
 
 export const categoryAPI = {

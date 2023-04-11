@@ -1,18 +1,19 @@
 import { ThunkAction } from "redux-thunk";
 import { categoryAPI } from "../api/api";
 import { CategoryType } from "../type/type";
+import { AppStateType } from "./redux-store";
 
 const SET_CATEGORY_LIST = 'SET_CATEGORY_LIST'
 
-type InitialStateType = {
+export type InitialStateCategoryType = {
     categoryList: Array<CategoryType> | null
 }
 
-let initialState: InitialStateType = {
+export let initialStateCategory: InitialStateCategoryType = {
     categoryList: null
 }
 
-let categoryReducer = (state = initialState, action: ActionsType) => {
+let categoryReducer = (state = initialStateCategory, action: ActionsType): InitialStateCategoryType => {
     switch (action.type) {
         case SET_CATEGORY_LIST:
             return {
@@ -24,14 +25,14 @@ let categoryReducer = (state = initialState, action: ActionsType) => {
     }
 }
 
-type SetCategoryListActionType = {
+export type SetCategoryListActionType = {
     type: typeof SET_CATEGORY_LIST,
     categoryList: Array<CategoryType>
 }
 
 type ActionsType = SetCategoryListActionType;
 
-export const getCategory = (): ThunkAction<Promise<void>, any, unknown, any> => async (dispatch) => {
+export const getCategory = (): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
 
     let promise = await categoryAPI.getCategory();
 
@@ -40,7 +41,6 @@ export const getCategory = (): ThunkAction<Promise<void>, any, unknown, any> => 
         dispatch(setCategoryList(promise))
     }
 }
-
 
 export const setCategoryList = (categoryList: Array<CategoryType>): SetCategoryListActionType => ({ type: SET_CATEGORY_LIST, categoryList })
 

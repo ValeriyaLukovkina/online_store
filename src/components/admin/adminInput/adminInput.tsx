@@ -1,17 +1,9 @@
 import { Field } from "formik";
 import React from "react";
-import { useState } from "react";
 import style from "./../admin.module.scss";
 
-const AdminInput: React.FC<any> = ({
-  field,
-  txtLabel,
-  error,
-  type,
-  // touched,
-  form: { touched, errors },
-  ...props
-}) => {
+const AdminInput: React.FC<any> = ({ field, txtLabel, error, type, form: { touched, errors }, ...props }) => {
+
   return (
     <div className={style.form_block}>
       <label className={style.form_block_label} htmlFor={field.name}>{txtLabel}</label>

@@ -7,14 +7,14 @@ import { ProductBasketType } from "../../type/type";
 import BasketProduct from "./basketProduct";
 import UIButton from "../UI/button/UIButton";
 import { countTotalPrice } from "../../utils/helpWithBasket";
-import BreadCrumbs from "../breadCrumbs/breadCrumbs";
 import { useState } from "react";
+import BreadCrumbs from "../UI/breadCrumbs/breadCrumbs";
 
 const Basket: React.FC<PropsType> = ({ basket, increaseCountProduct, decreaseCountProduct, deleteFromBasket, deleteBasket }) => {
     const [showModal, setShowModal] = useState(false)
     const basketPrice = countTotalPrice(basket);
     const basketBlock = basket.map((product: ProductBasketType) => {
-        return <BasketProduct product={product} increaseCountProduct={increaseCountProduct} decreaseCountProduct={decreaseCountProduct} deleteFromBasket={deleteFromBasket} />
+        return <BasketProduct key={product.barcode} product={product} increaseCountProduct={increaseCountProduct} decreaseCountProduct={decreaseCountProduct} deleteFromBasket={deleteFromBasket} />
     })
     return <div className={style.basket}>
         <BreadCrumbs>
@@ -36,17 +36,18 @@ const Basket: React.FC<PropsType> = ({ basket, increaseCountProduct, decreaseCou
                     deleteBasket()
                     setShowModal(false)
                 }, 1000)
-                }} style={{ 'padding': '21px 37.5px' }}>
+                }} style={{ 'padding': '21px 37.5px' }}
+                data-testid='btn-order-complete'>
                 Оформить заказ
             </UIButton>
             <p className={style.basket_footer_price}>{basketPrice} &#8381;</p>
         </div>
         {showModal &&
             ReactDOM.createPortal(
-                <div className="modal">
+                <div className="modal" data-testid='modal-order-complete'>
                     <p className="modal_txt">Спасибо за заказ</p>
                 </div>,
-                document.body
+                document.body 
             )}
     </div>
 }

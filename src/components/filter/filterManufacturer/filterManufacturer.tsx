@@ -19,8 +19,8 @@ const FilterManufacturer: React.FC<PropsType> = ({ manufacturerList, setManufact
 
     const checkbboxList: any = manufacturerList ? Object.entries(manufacturerList).map(([titleManufacturer, countProduct]) => {
         if (titleManufacturer.toLowerCase().includes(searchManufacturer.toLowerCase())) {
-            return <ManufacturerCheckbox key={titleManufacturer} titleManufacturer={titleManufacturer} countProduct={countProduct} setManufacturer={setManufacturer} />
-        }
+            return <ManufacturerCheckbox key={titleManufacturer} titleManufacturer={titleManufacturer} countProduct={countProduct} />
+        } 
     }) : null
 
     const showMore = () => {
@@ -33,7 +33,7 @@ const FilterManufacturer: React.FC<PropsType> = ({ manufacturerList, setManufact
             <Formik
                 initialValues={{
                     chekedManufacturer: [],
-                    searchManufacturer: ''
+                    searchManufacturer: '' 
                 }}
                 onSubmit={values => setManufacturer(values.chekedManufacturer)}
             >

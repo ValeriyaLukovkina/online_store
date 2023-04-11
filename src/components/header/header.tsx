@@ -11,7 +11,6 @@ import HeaderTopSmall from "./mobile/headerTopSmall";
 
 const Header: React.FC<PropsType> = ({ basket }) => {
 
-
     const basketPrice = useMemo(() => {
         return countTotalPrice(basket);
     }, [basket])

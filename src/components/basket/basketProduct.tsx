@@ -13,7 +13,7 @@ type PropsType = {
 }
 const BasketProduct: React.FC<PropsType> = ({ product, increaseCountProduct, decreaseCountProduct, deleteFromBasket }) => {
     return (
-        <div className={style.product}>
+        <div data-testid='product-basket' className={style.product}>
             <div className={style.product_img}>
                 <img className={style.product_img_img} src={product.image_url} alt={product.title} />
             </div>
@@ -38,7 +38,7 @@ const BasketProduct: React.FC<PropsType> = ({ product, increaseCountProduct, dec
                 <p className={style.product_extra_price}>{product.count * product.price} &#8381;</p>
                 <span className={style.product_extra_line}></span>
                 <div className={style.product_extra_btn}>
-                    <UIButtonRound onClick={() => deleteFromBasket(product.barcode)}>
+                    <UIButtonRound data-testid='btn-delete-from-basket' onClick={() => deleteFromBasket(product.barcode)}>
                         <img className={style.product_extra_btn_svg} src={logoDelete} alt='logoBasket' />
                     </UIButtonRound>
                 </div>

@@ -10,6 +10,7 @@ import logoMastrcard from './../../assests/svg/logoMastrcard.svg';
 import UIInput from "../UI/input/UIInput";
 import UIButton from "../UI/button/UIButton";
 import UIButtonRound from "../UI/buttonRound/UIButtonRound";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -34,20 +35,56 @@ const Footer = () => {
                 <div className={style.footer_block}>
                     <p className={style.footer_title}>Меню сайта:</p>
                     <ul className={style.footer_list}>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>О компании</a></li>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Доставка и оплата</a></li>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Возврат</a></li>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Контакты</a></li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                О компании
+                            </Link>
+                        </li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                Доставка и оплата
+                            </Link>
+                        </li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                Возврат
+                            </Link>
+                        </li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                Контакты
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={style.footer_block}>
                     <p className={style.footer_title}>Категории:</p>
                     <ul className={style.footer_list}>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Бытовая химия</a></li>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Косметика и гигиена</a></li>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Товары для дома</a></li>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Товары для детей и мам</a></li>
-                        <li className={style.footer_list_item}><a className={style.footer_list_item_link} href='#'>Посуда</a></li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                Бытовая химия
+                            </Link>
+                        </li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='/catalog'>
+                                Косметика и гигиена
+                            </Link>
+                        </li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                Товары для дома
+                            </Link>
+                        </li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                Товары для детей и мам
+                            </Link>
+                        </li>
+                        <li className={style.footer_list_item}>
+                            <Link className={style.footer_list_item_link} to='#'>
+                                Посуда
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={style.footer_block}>

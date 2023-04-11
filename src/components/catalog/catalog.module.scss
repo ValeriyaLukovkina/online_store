@@ -17,7 +17,6 @@
         flex-direction: column;
     }
 
-
     &_header {
         grid-area: head;
         position: relative;
@@ -57,8 +56,6 @@
             }
         }
     }
-
-
 
     &_filter {
         grid-area: filt;

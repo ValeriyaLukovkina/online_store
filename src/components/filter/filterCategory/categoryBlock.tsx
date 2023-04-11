@@ -12,7 +12,7 @@ type PropsType = {
 
 const CategoryBlock: React.FC<PropsType> = ({ categoryTitle, subcategoryList, choosenCategory, choosenSubcategory, chooseCategory, chooseSubcategory }) => {
     const subcategories = subcategoryList.map((subcategory: string) => {
-        return <button className={style.categories_category_subcategory + ' ' + (choosenSubcategory === subcategory && style.choosen)}
+        return <button key={subcategory} className={style.categories_category_subcategory + ' ' + (choosenSubcategory === subcategory && style.choosen)}
             onClick={() => chooseSubcategory(categoryTitle, subcategory)}>
             {subcategory}
         </button>

@@ -2,21 +2,22 @@
 // import categoryData from './../category.json';
 import { ThunkAction } from "redux-thunk";
 import { getCatalog, setCatalogReducer } from "./catalog-reducer";
-import { getCategory, setCategoryList } from './category-reducer';
+import { getCategory, setCategoryList, SetCategoryListActionType } from './category-reducer';
 import { CategoryType, ProductType } from "../type/type";
 import { setBasket } from "./basket-reducer";
+import { AppStateType } from "./redux-store";
 
 const INITIALIZE_APP = 'INITIALIZE_APP';
 
-type InintalStateType = {
+export type InintalStateAppType = {
     inintialized: boolean
 }
 
-let initialState: InintalStateType = {
+export let initialStateApp: InintalStateAppType = {
     inintialized: false
 }
 
-const appReducer = (state = initialState, action: ActionsType): InintalStateType => {
+const appReducer = (state = initialStateApp, action: ActionsType): InintalStateAppType => {
     switch (action.type) {
         case INITIALIZE_APP:
             return {
@@ -32,37 +33,41 @@ type initializedSuccessActionType = {
     type: typeof INITIALIZE_APP
 }
 
-type ActionsType = initializedSuccessActionType
+type ActionsType = initializedSuccessActionType | SetCategoryListActionType;
 
-export const initializedSuccess = () => ({ type: INITIALIZE_APP });
+export const initializedSuccess = (): initializedSuccessActionType => ({ type: INITIALIZE_APP });
 
-export const initializeApp = (): ThunkAction<Promise<void>, any, unknown, any> => async (dispatch) => {
+export const initializeApp = (): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
     let catalogLS = localStorage.getItem('catalog');
     let categoryLS = localStorage.getItem('category');
 
     let catalog: Array<ProductType> = catalogLS && await JSON.parse(catalogLS)
     let category: Array<CategoryType> = categoryLS && await JSON.parse(categoryLS)
 
-    let promiseCategory;
-    let promiseCatalog;
+    let promiseCategory: any;
+    let promiseCatalog: any;
     dispatch(setBasket())
 
     if (catalog && catalog.length > 0 && category) {
 
-        promiseCatalog = dispatch(setCatalogReducer(catalog));
+        promiseCatalog = await dispatch(setCatalogReducer(catalog));
 
-        promiseCategory = dispatch(setCategoryList(category))
+        promiseCategory = await dispatch(setCategoryList(category))
 
     } 
     if (!category) {
-        promiseCategory = dispatch(getCategory())
+        promiseCategory = await dispatch(getCategory())
     }
     if (!catalog || catalog.length === 0) {
-        promiseCatalog = dispatch(getCatalog());
+        promiseCatalog = await dispatch(getCatalog());
     } 
     Promise.all([promiseCategory, promiseCatalog])
     .then(() => {
+        // if (promiseCategory && promiseCatalog) {
         dispatch(initializedSuccess());
+
+        // }
+        // dispatch(initializedSuccess());
     })
 }
 
