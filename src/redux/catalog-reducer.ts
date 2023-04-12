@@ -100,12 +100,9 @@ type ActionsType = SetProductListActionType | SetManufacturerListType | SetSortT
 
 export const getCatalog = (): ThunkAction<Promise<void>, AppStateType, unknown, ActionsType> => async (dispatch) => {
     let promise: Array<ProductType> = await catalogAPI.getCatalog();
-    console.log(promise)
-
     if (promise) {
-        console.log(promise)
         localStorage.setItem('catalog', JSON.stringify(promise));
-        dispatch(setCatalogReducer(promise))
+        dispatch(setCatalogReducer(promise));
     }
 }
 

@@ -20,7 +20,7 @@ const BasketProduct: React.FC<PropsType> = ({ product, increaseCountProduct, dec
             <div className={style.product_about}>
                 <SizeProduct type={product.type_size} size={product.size} />
                 <h2 className={style.product_about_title}>{product.title}</h2>
-                <p className={style.product_about_description}>
+                <p data-testid='product-decription' className={style.product_about_description}>
                     {product.description.length > 200 ? product.description.slice(0, 200) + '...' : product.description}
                 </p>
             </div>
@@ -29,13 +29,13 @@ const BasketProduct: React.FC<PropsType> = ({ product, increaseCountProduct, dec
                     <button className={style.product_extra_counter_btn} onClick={() => decreaseCountProduct(product.barcode)}>
                         -
                     </button>
-                    <span className={style.product_extra_counter_count}>{product.count}</span>
+                    <span data-testid='product-count' className={style.product_extra_counter_count}>{product.count}</span>
                     <button className={style.product_extra_counter_btn} onClick={() => increaseCountProduct(product.barcode)}>
                         +
                     </button>
                 </div>
                 <span className={style.product_extra_line}></span>
-                <p className={style.product_extra_price}>{product.count * product.price} &#8381;</p>
+                <p data-testid='product-price' className={style.product_extra_price}>{product.count * product.price} &#8381;</p>
                 <span className={style.product_extra_line}></span>
                 <div className={style.product_extra_btn}>
                     <UIButtonRound data-testid='btn-delete-from-basket' onClick={() => deleteFromBasket(product.barcode)}>

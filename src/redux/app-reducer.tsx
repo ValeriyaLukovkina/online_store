@@ -9,15 +9,15 @@ import { AppStateType } from "./redux-store";
 
 const INITIALIZE_APP = 'INITIALIZE_APP';
 
-export type InintalStateAppType = {
+export type InitialStateAppType = {
     inintialized: boolean
 }
 
-export let initialStateApp: InintalStateAppType = {
+export let initialStateApp: InitialStateAppType = {
     inintialized: false
 }
 
-const appReducer = (state = initialStateApp, action: ActionsType): InintalStateAppType => {
+const appReducer = (state = initialStateApp, action: ActionsType): InitialStateAppType => {
     switch (action.type) {
         case INITIALIZE_APP:
             return {

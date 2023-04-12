@@ -26,7 +26,7 @@ describe('maxPriceProducts', () => {
         let newState = filterReducer(state, action);
         expect(newState.maxPriceProducts).toBe(10000);
     });
-})
+}) 
 
 describe('setCategory', () => {
     test('category should be set', () => {

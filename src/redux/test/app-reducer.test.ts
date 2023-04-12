@@ -1,10 +1,10 @@
-import appReducer, { InintalStateAppType, initializeApp, initializedSuccess, initialStateApp } from "../app-reducer";
+import appReducer, { initializedSuccess, initialStateApp, InitialStateAppType } from "../app-reducer";
 
-let stateApp: InintalStateAppType = initialStateApp;
+let stateApp: InitialStateAppType = initialStateApp;
 
 describe('initializedSuccess', () => {
     test('inintialized should be true', () => {
         let newState = appReducer(stateApp, initializedSuccess());
         expect(newState.inintialized).toBeTruthy()
     })
-})  
+})
